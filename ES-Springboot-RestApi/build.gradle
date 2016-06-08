@@ -1,0 +1,39 @@
+buildscript {
+    ext {
+        springBootVersion = '1.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp' 
+apply plugin: 'idea'
+apply plugin: 'spring-boot' 
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+war {
+    baseName = 'ES-Springboot-RestApi'
+    version = '0.0.1-SNAPSHOT'
+}
+
+
+repositories {
+    mavenCentral()
+    
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile('mysql:mysql-connector-java:5.1.6')
+    compile('javax.inject:javax.inject:1')
+}
